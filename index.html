@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Configurator</title>
+    <link rel="stylesheet" href="./library/sumoselect.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header class="menu">
+        <div class="container menu__container">
+            <a href="/" class="menu__logo">
+                <img src="./img/logo_face.svg" class="menu__face" alt="Baby Configurator">
+                <img src="./img/logo_text.png" alt="Baby Configurator" class="menu__label">
+            </a>
+            <span class="menu__slogan">Идеальный ребенок с доставкой</span>
+            <a href="tel:+7 (843) 250-60-70">+7 (843) 250-60-70</a>
+        </div>
+    </header>
+    <main class="configurator">
+        <div class="container configurator__container">
+
+            <section class="configurator__content">
+                <h1>Собери себе малыша</h1>
+                <form class="form configurator__form">
+                    <div class="form__step">
+                        <span class="form__num">1.</span>
+                        <h2><b>Шаг 1.</b> (Основные параметры)</h2>
+                        <div class="form__row">
+                            <p class="form__label">Пол ребенка:</p>
+                            <div class="form__radio"> <input type="radio" name="gender" value="male" id="male" checked>
+                                <label for="male" class="form__label">Мужской </label></div>
+                            <div class="form__radio"> <input type="radio" name="gender" value="female" id="female">
+                                <label for="female" class="form__label">Женский </label></div>
+                        </div>
+                        <div class="form__row form__row--3">
+                            <div class="form__input">
+                                <p class="form__label">Раса</p>
+                                <select class="form__select" name="race">
+                                    <option value="dark_elf" selected>Тёмный эльф</option>
+                                    <option value="high_elf">Высокий эльф</option>
+                                    <option value="argonian">Аргонианин</option>
+                                </select>
+                            </div>
+                            <div class="form__input">
+                                <label for="name" class="form__label">Имя</label>
+                                <input type="text" name="name" id="name" placeholder="Выберите имя">
+                            </div>
+                            <button class="button button--secondary form__generate" type="button">сгенерировать
+                                случайное</button>
+                        </div>
+                        <div class="form__calendar">
+                            <p class="form__label">Дата рождения</p>
+                            <div id="calendar" class="calendar">
+                                <div class="calendar__header">
+                                    <div id="change_month" class="calendar__ctrls">
+                                        <button type="button" class="calendar__ctrl calendar__ctrl--prev"
+                                            title="Предыдущий месяц" data-action="decr"></button>
+                                        <span class="calendar__month">сентябрь</span>
+                                        <button type="button" class="calendar__ctrl calendar__ctrl--next"
+                                            title="Следующий месяц" data-action="incr"></button>
+                                    </div>
+                                    <div id="change_year" class="calendar__ctrls">
+                                        <button type="button" class="calendar__ctrl calendar__ctrl--prev"
+                                            title="Предыдущий год" data-action="decr"></button>
+                                        <span class="calendar__year">2020</span>
+
+                                        <button type="button" class="calendar__ctrl calendar__ctrl--next"
+                                            title="Предыдущий год" data-action="incr"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__input form__hidden">
+                                <input type="text" name="birthday" id="birthday"
+                                    data-inputmask="'alias': 'datetime','inputFormat': 'dd.mm.yyyy'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__step">
+                        <span class="form__num">2.</span>
+                        <h2><b>Шаг 2.</b> (Физические данные)</h2>
+
+                        <p class="form__instruct">Выберете диапозон</p>
+                        <div class="form__row form__row--margin form__row--2">
+                            <div class="form__input form__input--merged">
+                                <p class="form__label">Рост, мм</p>
+                                <input type="number" name="height" id="height">
+                                <div id="height_range" class="form__range"></div>
+                            </div>
+                            <div class="form__input form__input--margin">
+                                <p class="form__label">Вес, гр</p>
+                                <div id="weight_range" class="form__range">
+                                    <input type="hidden" name="weight_min" id="weight_min">
+                                    <input type="hidden" name="weight_max" id="weight_max">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form__row form__row--3">
+                            <div class="form__input form__input--color">
+                                <p class="form__label">Цвет кожи</p>
+                                <select name="skin">
+                                    <option data-color="#e8b29a" value="normal" selected>кожанный</option>
+                                    <option data-color="#205d33" value="gren">зелёный</option>
+                                </select>
+                            </div>
+                            <div class="form__input form__input--color">
+                                <p class="form__label">Цвет глаз</p>
+                                <select name="eyes" id="eyes">
+                                    <option data-color="#3e1c19" value="black" data-f="ff" selected>черный</option>
+                                    <option data-color="#cc1111" value="red">красный</option>
+                                </select>
+                            </div>
+                            <div class="form__input form__input--color">
+                                <p class="form__label">Цвет волос</p>
+                                <select name="race" id="race">
+                                    <option data-color="#f7bb6c" value="yellow" selected>желтый</option>
+                                    <option data-color="#205d33" value="gren">зелёный</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="button button--send">Оформить доставку</button>
+                </form>
+            </section>
+
+            <div class="configurator__photo">
+                <img src="./img/baby.jpg" alt="baby">
+            </div>
+        </div>
+    </main>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="./library/jquery.sumoselect.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="./library/datepicker-ru.js"></script>
+    <script src="/library/jquery.inputmask.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
